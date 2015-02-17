@@ -7,4 +7,4 @@
  - Design Minimal functionality models
  - Add Flask-RESTful
  - Add older admin panel
- -<s> Live Minimal </s>
+ - <s> Live minimal </s>
