@@ -7,6 +7,7 @@
  - <s>Design Minimal functionality models</s>
  - <s>Live minimal </s>
  - <s>Include basic Blobfield to Model</s>
+ - setup G+ auth
  - Add Flask-RESTful
  - Add older admin panel
  - Leaflet Map for Markermaps
