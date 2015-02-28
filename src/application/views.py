@@ -18,7 +18,7 @@ from flask_cache import Cache
 from application import app
 from decorators import login_required, admin_required
 from forms import ExampleForm
-from models import ExampleModel
+from models import SchoolModel
 
 
 # Flask-Cache (configured to use App Engine Memcache API)
@@ -37,10 +37,10 @@ def say_hello(username):
 @login_required
 def list_examples():
     """List all examples"""
-    examples = ExampleModel.query()
+    examples = SchoolModel.query()
     form = ExampleForm()
     if form.validate_on_submit():
-        example = ExampleModel(
+        example = SchoolModel(
             example_name=form.example_name.data,
             example_description=form.example_description.data,
             added_by=users.get_current_user()
@@ -58,7 +58,7 @@ def list_examples():
 
 @login_required
 def edit_example(example_id):
-    example = ExampleModel.get_by_id(example_id)
+    example = SchoolModel.get_by_id(example_id)
     form = ExampleForm(obj=example)
     if request.method == "POST":
         if form.validate_on_submit():
@@ -73,7 +73,7 @@ def edit_example(example_id):
 @login_required
 def delete_example(example_id):
     """Delete an example object"""
-    example = ExampleModel.get_by_id(example_id)
+    example = SchoolModel.get_by_id(example_id)
     if request.method == "POST":
         try:
             example.key.delete()
@@ -93,7 +93,7 @@ def admin_only():
 @cache.cached(timeout=60)
 def cached_examples():
     """This view should be cached for 60 sec"""
-    examples = ExampleModel.query()
+    examples = SchoolModel.query()
     return render_template('list_examples_cached.html', examples=examples)
 
 
