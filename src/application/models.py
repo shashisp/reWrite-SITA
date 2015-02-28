@@ -9,7 +9,7 @@ App Engine datastore models
 from google.appengine.ext import ndb
 
 class SchoolModel(ndb.Model):
-    """"Basic Model""""
+    """"Basic Model"""""
     name = ndb.StringProperty(required=True)
     place = ndb.StringProperty(required=True)
     added_by = ndb.UserProperty()
